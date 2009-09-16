@@ -1,0 +1,63 @@
+% para comentar use esse símbolo de porcentagem
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+
+\usepackage[francais]{babel}
+
+\title{Como escrever em \LaTeX\ ?}
+\author{Ciência da Computação}
+\date{}
+
+\begin{document}
+\maketitle
+
+Como escrever em \LaTeX\ 
+
+Para escrever em itálico:\\
+\textbackslash textit \{texto\} (\textbf{i}talic)
+\[\textit {texto}\]
+
+Para escrever em negrito:\\
+\textbackslash textbf  \{texto\} (\textbf{b}old\textbf{f}ace)
+\[\textbf {texto}\]
+
+Para escrever letras gregas: \\
+\$\textbackslash alpha\textbackslash beta\textbackslash gamma\$ \\
+\$\textbackslash Sigma\textbackslash Delta\textbackslash Omega\$\\
+
+\[\alpha \beta \gamma\] 
+\[\Sigma \Delta \Omega\]
+
+Para escrever uma fórmula: \\
+\$fórmula\$
+\[f(x)= x^2\]
+
+Para sobreescrever: \\
+\$texto\^{}\{texto sobreescrito\}\$
+\[x^{2k+1}\]
+
+Para subescrever: \\
+\$texto\_\{texto sobreescrito\}\$ 
+\[x_1\]
+
+Mutiplicação: \\
+\$fator \textbackslash times fator = resultado\$ 
+\[3 \times 3 = 9\]
+
+Divisão: \\
+\$fator \textbackslash div fator = resultado\$ 
+ \[4 \div 2 = 2\]
+
+Frações: \\
+\$\textbackslash frac\{numerador\}\{denominador\}\$
+\[\frac{1}{2}\]
+
+Raízes: \\
+\$\textbackslash sqrt [índice] \{radicando\}\$
+\[\sqrt [n] {2}\]
+\end{document}
+
