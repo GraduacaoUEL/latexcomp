@@ -9,55 +9,118 @@
 \usepackage[francais]{babel}
 
 \title{Como escrever em \LaTeX\ ?}
-\author{Ciência da Computação}
-\date{}
+\author{
+	\textsc{Ernesto Yuiti Saito}\\
+	\textsc{Hayato Fujii}\\
+	\textsc{Hélio Albano de Oliveira}\\
+	\textsc{Luiz Henrique Jofre da Silva}\\
+	\textsc{Marcos Okamura Rodrigues}\\
+}
+\date{Londrina 2009}
 
 \begin{document}
+
 \maketitle
 
-Como escrever em \LaTeX\ 
+% Espaçamento 1,5 entre linhas
+\renewcommand{\baselinestretch}{1.5}
 
-Para escrever em itálico:\\
-\textbackslash textit \{texto\} (\textbf{i}talic)
+\hspace{3cm}Os seguintes comandos têm um significado especial no \LaTeX\ :
+\begin{itemize}
+\item \textbackslash \ especifica um comando;
+\item \& separa colunas;
+\item \$ especifica comandos matemáticos;
+\item \% ignora linha (comentários);
+\item \^{} potência (sobreescrito);
+\item \_  subíndice (subscrito);
+\item \{\} parte dos comandos;
+\end{itemize}
+
+\hspace{3cm}Para inicializar um ambiente:
+\begin{verbatim}
+\begin{ambiente}
+Seu texto
+\end{ambiente}
+\end{verbatim}
+
+\hspace{3cm}Para criar um documento:
+\begin{verbatim}
+\begin{document}
+Seu documento
+\end{document}
+\end{verbatim}
+
+\hspace{3cm}Para criar uma lista:
+\begin{verbatim}
+\begin{tipo de lista}
+\item item1;
+\item item2;
+.............
+\item item n;
+\end{tipo de lista}
+\end{verbatim}
+
+\hspace{3cm}Para escrever em itálico: (\textbf{i}talic)
+\begin{verbatim}
+\textit{texto} 
+\end{verbatim}
 \[\textit {texto}\]
 
-Para escrever em negrito:\\
-\textbackslash textbf  \{texto\} (\textbf{b}old\textbf{f}ace)
+\hspace{3cm}Para escrever em negrito: (\textbf{b}old\textbf{f}ace)
+\begin{verbatim}
+\textbf{texto} 
+\end{verbatim}
 \[\textbf {texto}\]
 
-Para escrever letras gregas: \\
-\$\textbackslash alpha\textbackslash beta\textbackslash gamma\$ \\
-\$\textbackslash Sigma\textbackslash Delta\textbackslash Omega\$\\
-
+\hspace{3cm}Para escrever letras gregas: 
+\begin{verbatim}
+$\alpha\ beta\ gamma$                   
+$ \Sigma\ Delta\ Omega$
+\end{verbatim}
 \[\alpha \beta \gamma\] 
 \[\Sigma \Delta \Omega\]
 
-Para escrever uma fórmula: \\
-\$fórmula\$
+\hspace{3cm}Para escrever uma fórmula: 
+\begin{verbatim}
+$fórmula$
+\end{verbatim}
 \[f(x)= x^2\]
 
-Para sobreescrever: \\
-\$texto\^{}\{texto sobreescrito\}\$
+\hspace{3cm}Para sobreescrever: 
+\begin{verbatim}
+$texto^{}{texto sobreescrito}$
+\end{verbatim}
 \[x^{2k+1}\]
 
-Para subescrever: \\
-\$texto\_\{texto sobreescrito\}\$ 
+\hspace{3cm}Para subescrever: 
+\begin{verbatim}
+$texto_{texto sobreescrito}$ 
+\end{verbatim}
 \[x_1\]
 
-Mutiplicação: \\
-\$fator \textbackslash times fator = resultado\$ 
+\hspace{3cm}Mutiplicação: 
+\begin{verbatim}
+$fator \times fator = resultado$ 
+\end{verbatim}
 \[3 \times 3 = 9\]
 
-Divisão: \\
-\$fator \textbackslash div fator = resultado\$ 
- \[4 \div 2 = 2\]
+\hspace{3cm}Divisão: 
+\begin{verbatim}
+\fator \div fator = resultado$ 
+\end{verbatim} 
+\[4 \div 2 = 2\]
 
-Frações: \\
-\$\textbackslash frac\{numerador\}\{denominador\}\$
+\hspace{3cm}Frações: 
+\begin{verbatim}
+$\frac{numerador}{denominador}$
+\end{verbatim}
 \[\frac{1}{2}\]
 
-Raízes: \\
-\$\textbackslash sqrt [índice] \{radicando\}\$
+\hspace{3cm}Raízes: 
+\begin{verbatim}
+$\sqrt[índice]{radicando}$
+\end{verbatim}
 \[\sqrt [n] {2}\]
+
 \end{document}
 
