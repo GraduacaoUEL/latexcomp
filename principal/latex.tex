@@ -104,6 +104,7 @@ Sintaxe:
 \hspace{2cm}Para criar uma nova seção, é necessário utilizar o comando section. Desta forma, o \LaTeX\ criará uma seção dita e, caso for requerido, será indexado automaticamente em um índice (comando \textbackslash index). É possivel fazer isto em 3 níveis: seção, sub-seção e sub-sub-seção.
 
 \subsubsection{Criação}
+Sintaxe:
 \begin{verbatim}
 \begin{document}
 Seu documento
@@ -112,7 +113,7 @@ Seu documento
 \hspace{2cm}É o encapsulamento principal; todas os outros ambientes, exceto ao pre-âmbulo, devem ser inseridos dentro deste. Caso contrário, o intepretador \LaTeX\ não dará a saída desejada se estiver fora do "ambiente".
 
 \subsubsection{Ambiente}
-Sintaxe
+Sintaxe:
 \begin{verbatim}
 \begin{Nome do Ambiente}
 Seu texto
@@ -134,7 +135,24 @@ Sintaxe:
 
 \hspace{2cm}Cria listas em um ambiente. Existem 2 tipos de listas: \textit{enumerate}, \textit{itemize}. O último basta para listas simples, enquanto \textit{enumerate} cria listas enumeradas. Cada item deve ser colocado entre o ambiente após o comando \textbackslash \textit{item Nome do Item}. Estes podem ser detalhadas logo após utilizando o comando \textbackslash \textit{description Descrição}.
 
-\subsubsection{Formatação: \textbf{It}álico}
+\subsubsection{Formatação}
+
+\hspace{2cm}Para inserir espaços:
+\begin{verbatim}
+\<space><space>...<space>\
+\end{verbatim}
+
+\hspace{2cm}Para quebra de linha:
+\begin{verbatim}
+\\
+\end{verbatim}
+
+\hspace{2cm}Para parágrafo:
+\begin{verbatim}
+\hspace{espacamento na medida especificada}
+\end{verbatim}
+
+\hspace{2cm}Para escrever em itálico: (\textit{it}alic)
 Sintaxe:
 \begin{verbatim}
 \textit{texto} 
@@ -231,27 +249,5 @@ $\[\int_{-\infty}^{+\infty} \frac{x}{2} + x^2 dx\]$
 $\[\lim_{x \to \infty}{1 \over x}=0\]$
 \end{verbatim}
 \[\lim_{x \to \infty}{1 \over x}=0\]
-
-
-
-
-\subsection{Formatação}
-
-\hspace{2cm}Para inserir espaços:
-\begin{verbatim}
-\<space><space>...<space>
-\end{verbatim}
-
-\hspace{2cm}Para quebra de linha:
-\begin{verbatim}
-\\
-\end{verbatim}
-
-\hspace{2cm}Para parágrafo:
-\begin{verbatim}
-\hspace{espacamento na medida especificada}
-\end{verbatim}
-
-
 
 \end{document}
