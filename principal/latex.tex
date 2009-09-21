@@ -1,56 +1,122 @@
 % para comentar use esse símbolo de porcentagem
 
+% Preâmbulo
 \documentclass[a4paper,12pt]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{geometry}
 
-\usepackage[francais]{babel}
+\usepackage[brazil]{babel}
+%\usepackage[T1]{fontenc}
+\usepackage{ae}
 
-\title{Como escrever em \LaTeX\ ?}
+\DeclareOption{brazil}{\input{portuges.ldf}}
+
+\title{Como escrever em \LaTeX\ }
 \author{
-	\textsc{Ernesto Yuiti Saito}\\
-	\textsc{Hayato Fujii}\\
-	\textsc{Hélio Albano de Oliveira}\\
-	\textsc{Luiz Henrique Jofre da Silva}\\
-	\textsc{Marcos Okamura Rodrigues}\\
+	Ernesto Yuiti Saito\\
+	Hayato Fujii\\
+	Helio Albano de Oliveira\\
+	Luiz Henrique Jofre da Silva\\
+	Marcos Okamura Rodrigues\\
 }
-\date{Londrina 2009}
+\date{\today}
 
+% Fim preâmbulo
+
+% Início documento em si
 \begin{document}
 
+% Faça o título conforme definido no title-preâmbulo
 \maketitle
 
 % Espaçamento 1,5 entre linhas
-\renewcommand{\baselinestretch}{1.5}
+%\renewcommand{\baselinestretch}{1.5}
 
-\hspace{3cm}Os seguintes comandos têm um significado especial no \LaTeX\ :
+\section{Observações}
+Os seguintes caracteres têm um significado especial no \LaTeX\ :
 \begin{itemize}
 \item \textbackslash \ especifica um comando;
 \item \& separa colunas;
 \item \$ especifica comandos matemáticos;
 \item \% ignora linha (comentários);
-\item \^{} potência (sobreescrito);
-\item \_  subíndice (subscrito);
-\item \{\} parte dos comandos;
+\item \^{} escreve em sobreescrito. Útil para escrever potências, por exemplo;
+\item \_  escreve em subscrito. Útil para escrever subíndice, por exemplo;
+\item \{\} define configurações dos comandos \LaTeX\ ;
 \end{itemize}
+Devido às características interpretativas desses caracteres dentro do compilador \LaTeX\ , eles devem ser tratados com muito cuidado na hora do texto ser escrito. Caso necessário escrever esses caracteres especias, é necessário utilizar comandos de escape ou, como utilizado neste documento, usar a opção \textit{verbatim} para mostrar exemplos de código.
 
-\hspace{3cm}Para inicializar um ambiente:
+\section{Comandos \LaTeX\ }
+\subsection{Cabeçalho: Preâmbulo}
+O preâmbulo contém dados iniciais, como o título do documento, a inserção dos nomes dos autores e seus respectivos dados. Este "cabeçalho" também define o tamanho do papel a ser utilizado (caso for impresso), bem como as configurações de língua para o compilador \LaTeX\ não se confundir ao encontrar caracteres especiais, como os encontrados na Língua Portuguesa.
+
+\subsubsection{Classe de Documento}
+Sintaxe:
+\begin{verbatim}
+\documentclass{papel, fonte}
+\end{verbatim}
+
+O comando documentclass é requerido para todos os documentos gerados no \LaTeX\ . É ela quem define qual o tamanho de papel que vai ser utilizado e qual é o tamanho da fonte do documento em si.
+O padrão para o argumento papel é \textit{a4paper} e a fonte é \textit{12pt}.
+
+\subsubsection{Título}
+Sintaxe:
+\begin{verbatim}
+\title{Título}
+\end{verbatim}
+
+O comando title também é requerido para o bom funcionamento do \LaTeX\ . Como já está propriamente apontado, este comando é quem define o título deste documento.
+
+\subsubsection{Autores}
+Sintaxe:
+\begin{verbatim}
+\author{
+	linha 1\\
+	linha 2\\
+	...
+	linha n\\
+}
+\end{verbatim}
+
+O comando author é tambem necessário para os documentos \LaTeX\ . Ela define quem são os autores do documento.
+Este comando suporta entrada de várias linhas: ao final de cada um, deve-se adicionar \textbackslash newline ou \textbackslash \textbackslash .
+
+\subsubsection{Data}
+Sintaxe:
+\begin{verbatim}
+\date{data}
+\end{verbatim}
+
+O comando data define a data de geração do documento \LaTeX\ . Pode ser escrito tanto em forma de números, ou como uma frase.
+
+\hspace{0.1pt}Alternativamente, alguns autores utiliza o comando \textbackslash today dentro deste comando, retornando a data de geração do documento em extenso. Portanto, esta saída é dependente dos pacotes de regionalização utilizados no documento; caso omitido, é utilizado, por padrão, a língua francesa.
+
+\subsection{Documento}
+
+\subsubsection{Seções e Subseções}
+Para criar uma nova seção, é necessário utilizar o comando section. Desta forma, o \LaTeX\ criará uma seção dita e, caso for requerido, será indexado automaticamente em um índice.
+
+Sintaxe:
+\begin{verbatim}
+\section{Nome da Seção}
+\end{verbatim}
+
+Para inicializar um ambiente:
 \begin{verbatim}
 \begin{ambiente}
 Seu texto
 \end{ambiente}
 \end{verbatim}
 
-\hspace{3cm}Para criar um documento:
+Para criar um documento:
 \begin{verbatim}
 \begin{document}
 Seu documento
 \end{document}
 \end{verbatim}
 
-\hspace{3cm}Para criar uma lista:
+Para criar uma lista:
 \begin{verbatim}
 \begin{tipo de lista}
 \item item1;
@@ -60,67 +126,67 @@ Seu documento
 \end{tipo de lista}
 \end{verbatim}
 
-\hspace{3cm}Para escrever em itálico: (\textbf{i}talic)
+Para escrever em itálico: (\textbf{i}talic)
 \begin{verbatim}
 \textit{texto} 
 \end{verbatim}
 \[\textit {texto}\]
 
-\hspace{3cm}Para escrever em negrito: (\textbf{b}old\textbf{f}ace)
+Para escrever em negrito: (\textbf{b}old\textbf{f}ace)
 \begin{verbatim}
 \textbf{texto} 
 \end{verbatim}
 \[\textbf {texto}\]
 
-\hspace{3cm}Para escrever letras gregas: 
+Para escrever letras gregas: 
 \begin{verbatim}
-$\alpha\ beta\ gamma$                   
-$ \Sigma\ Delta\ Omega$
+$\alpha \beta \gamma$                   
+$\Sigma \Delta \Omega$
 \end{verbatim}
 \[\alpha \beta \gamma\] 
 \[\Sigma \Delta \Omega\]
 
-\hspace{3cm}Para escrever uma fórmula: 
+Para escrever uma fórmula: 
 \begin{verbatim}
-$fórmula$
+$formula$
 \end{verbatim}
 \[f(x)= x^2\]
 
-\hspace{3cm}Para sobreescrever: 
+Para sobreescrever: 
 \begin{verbatim}
 $texto^{}{texto sobreescrito}$
 \end{verbatim}
 \[x^{2k+1}\]
 
-\hspace{3cm}Para subescrever: 
+Para subescrever: 
 \begin{verbatim}
 $texto_{texto sobreescrito}$ 
 \end{verbatim}
 \[x_1\]
 
-\hspace{3cm}Mutiplicação: 
+Mutiplicação: 
 \begin{verbatim}
 $fator \times fator = resultado$ 
 \end{verbatim}
 \[3 \times 3 = 9\]
 
-\hspace{3cm}Divisão: 
+Divisão: 
 \begin{verbatim}
 \fator \div fator = resultado$ 
 \end{verbatim} 
 \[4 \div 2 = 2\]
 
-\hspace{3cm}Frações: 
+Frações: 
 \begin{verbatim}
 $\frac{numerador}{denominador}$
 \end{verbatim}
 \[\frac{1}{2}\]
 
-\hspace{3cm}Raízes: 
+Raízes: 
 \begin{verbatim}
 $\sqrt[índice]{radicando}$
 \end{verbatim}
 \[\sqrt [n] {2}\]
 
-\end{document}
 
+\end{document}
