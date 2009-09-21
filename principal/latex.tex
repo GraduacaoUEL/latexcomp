@@ -52,7 +52,7 @@
 \hspace{2cm}O preâmbulo contém dados iniciais, como o título do documento, a inserção dos nomes dos autores e seus respectivos dados. Este "cabeçalho"  \ \ também define o tamanho do papel a ser utilizado (caso for impresso), bem como as configurações de língua para o compilador \LaTeX\ não se confundir ao encontrar caracteres especiais, como os encontrados na Língua Portuguesa.
 
 \subsubsection{Classe de Documento}
-\hspace{2cm}Sintaxe:
+Sintaxe:
 \begin{verbatim}
 \documentclass{papel, fonte}
 \end{verbatim}
@@ -60,7 +60,7 @@
 \hspace{2cm}O comando documentclass é requerido para todos os documentos gerados no \LaTeX. É ela quem define qual o tamanho de papel que vai ser utilizado e qual é o tamanho da fonte do documento em si. O padrão para o argumento papel é \textit{a4paper} e a fonte é \textit{12pt}.
 
 \subsubsection{Título}
-\hspace{2cm}Sintaxe:
+Sintaxe:
 \begin{verbatim}
 \title{Título}
 \end{verbatim}
@@ -68,7 +68,7 @@
 \hspace{2cm}O comando title também é requerido para o bom funcionamento do \LaTeX\ . Como já está propriamente apontado, este comando é quem define o título deste documento.
 
 \subsubsection{Autores}
-\hspace{2cm}Sintaxe:
+Sintaxe:
 \begin{verbatim}
 \author{
 	linha 1\\
@@ -82,7 +82,7 @@
 Este comando suporta entrada de várias linhas: ao final de cada um, deve-se adicionar \textbackslash newline ou \textbackslash \textbackslash .
 
 \subsubsection{Data}
-\hspace{2cm}Sintaxe:
+Sintaxe:
 \begin{verbatim}
 \date{data}
 \end{verbatim}
@@ -94,42 +94,55 @@ Este comando suporta entrada de várias linhas: ao final de cada um, deve-se adi
 \subsection{Documento}
 
 \subsubsection{Seções e Subseções}
-\hspace{2cm}Para criar uma nova seção, é necessário utilizar o comando section. Desta forma, o \LaTeX\ criará uma seção dita e, caso for requerido, será indexado automaticamente em um índice.
-
-\hspace{2cm}Sintaxe:
+Sintaxe:
 \begin{verbatim}
 \section{Nome da Seção}
+\subsection{Nome da Subseção}
+\subsubsection{Nome da Subsubseção}
 \end{verbatim}
 
-\hspace{2cm}Para inicializar um ambiente:
-\begin{verbatim}
-\begin{ambiente}
-Seu texto
-\end{ambiente}
-\end{verbatim}
+\hspace{2cm}Para criar uma nova seção, é necessário utilizar o comando section. Desta forma, o \LaTeX\ criará uma seção dita e, caso for requerido, será indexado automaticamente em um índice (comando \textbackslash index). É possivel fazer isto em 3 níveis: seção, sub-seção e sub-sub-seção.
 
-\hspace{2cm}Para criar um documento:
+\subsubsection{Criação}
 \begin{verbatim}
 \begin{document}
 Seu documento
 \end{document}
 \end{verbatim}
+\hspace{2cm}É o encapsulamento principal; todas os outros ambientes, exceto ao pre-âmbulo, devem ser inseridos dentro deste. Caso contrário, o intepretador \LaTeX\ não dará a saída desejada se estiver fora do "ambiente".
 
-\hspace{2cm}Para criar uma lista:
+\subsubsection{Ambiente}
+Sintaxe
 \begin{verbatim}
-\begin{tipo de lista}
+\begin{Nome do Ambiente}
+Seu texto
+\end{Nome do Ambiente}
+\end{verbatim}
+
+\hspace{2cm}Um ambiente é basicamente um encapsulador do texto. Dentro dele é onde o texto deve ser escrito em si. Pode ser usado somente para "indexar", de forma interna, um certo pedaço de texto dentro do código \LaTeX\ .
+
+\subsubsection{Lista}
+Sintaxe:
+\begin{verbatim}
+\begin{Tipo de Lista}
 \item item1;
 \item item2;
 .............
 \item item n;
-\end{tipo de lista}
+\begin{Tipo de Lista}
 \end{verbatim}
 
-\hspace{2cm}Para escrever em itálico: (\textbf{i}talic)
+\hspace{2cm}Cria listas em um ambiente. Existem 2 tipos de listas: \textit{enumerate}, \textit{itemize}. O último basta para listas simples, enquanto \textit{enumerate} cria listas enumeradas. Cada item deve ser colocado entre o ambiente após o comando \textbackslash \textit{item Nome do Item}. Estes podem ser detalhadas logo após utilizando o comando \textbackslash \textit{description Descrição}.
+
+\subsubsection{Formatação: \textbf{It}álico}
+Sintaxe:
 \begin{verbatim}
 \textit{texto} 
 \end{verbatim}
-\[\textit {texto}\]
+Gera:
+\textit {texto}
+
+\hspace{2cm}Deixa o texto \textit{itálico}.
 
 \hspace{2cm}Para escrever em negrito: (\textbf{b}old\textbf{f}ace)
 \begin{verbatim}
