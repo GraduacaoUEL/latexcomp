@@ -11,7 +11,7 @@
 %\usepackage[T1]{fontenc}
 \usepackage{ae}
 
-\DeclareOption{brazil}{\input{portuges.ldf}}
+%\DeclareOption{brazil}{\input{portuges.ldf}}
 
 \title{Como escrever em \LaTeX\ }
 \author{
@@ -93,6 +93,9 @@ Sintaxe:
 
 \subsection{Documento}
 
+\subsubsection{Parágrafos e Subparágrafos}
+\hspace{2cm}O comando \textbackslash paragraph \{texto\} e \textbackslash subparagraph \{texto\} geram, respecitvamente, um parágrafo e um subparágrafo. Nota-se que ambos não contém recuo inicial e estão destacados em negrito no texto.
+
 \subsubsection{Seções e Subseções}
 Sintaxe:
 \begin{verbatim}
@@ -101,7 +104,15 @@ Sintaxe:
 \subsubsection{Nome da Subsubseção}
 \end{verbatim}
 
-\hspace{2cm}Para criar uma nova seção, é necessário utilizar o comando section. Desta forma, o \LaTeX\ criará uma seção dita e, caso for requerido, será indexado automaticamente em um índice (comando \textbackslash index). É possivel fazer isto em 3 níveis: seção, sub-seção e sub-sub-seção.
+\hspace{2cm}Para criar uma nova seção, é necessário utilizar o comando section. Desta forma, o \LaTeX\ criará uma seção dita e, caso for requerido, será indexado automaticamente em um índice (comando \textbackslash index). É possivel fazer isto em 3 níveis: seção, sub-seção e sub-sub-seção. Caso não seja necessário numeração da seção, utilize o comando \textbackslash (sub)(sub)section*.
+
+\subsubsection{Capítulos}
+Sintaxe:
+\begin{verbatim}
+\chapter{Nome do capítulo}
+\end{verbatim}
+
+\hspace{2cm}Semelhante à uma criação de uma nova seção, os capítulos também sao auto-enumerados e indexados corretamente pelo compilador \LaTeX\ .
 
 \subsubsection{Criação}
 Sintaxe:
@@ -110,7 +121,8 @@ Sintaxe:
 Seu documento
 \end{document}
 \end{verbatim}
-\hspace{2cm}É o encapsulamento principal; todas os outros ambientes, exceto ao pre-âmbulo, devem ser inseridos dentro deste. Caso contrário, o intepretador \LaTeX\ não dará a saída desejada se estiver fora do "ambiente".
+\hspace{2cm}É o encapsulamento principal; todas os outros ambientes, exceto ao pre-âmbulo, devem ser inseridos dentro deste. Comandos inseridos fora deste ambiente não serão mostrados dentro do documentos. É de fundamental importância para qualquer documento \LaTeX\ .
+
 
 \subsubsection{Ambiente}
 Sintaxe:
@@ -122,149 +134,156 @@ Seu texto
 
 \hspace{2cm}Um ambiente é basicamente um encapsulador do texto. Dentro dele é onde o texto deve ser escrito em si. Pode ser usado somente para "indexar", de forma interna, um certo pedaço de texto dentro do código \LaTeX\ .
 
-\subsubsection{Lista}
+\subsubsection{Listas}
 Sintaxe:
 \begin{verbatim}
 \begin{Tipo de Lista}
 \item item1;
 \item item2;
-.............
+...
 \item item n;
-\begin{Tipo de Lista}
+\end{Tipo de Lista}
 \end{verbatim}
 
-\hspace{2cm}Cria listas em um ambiente. Existem 2 tipos de listas: \textit{enumerate}, \textit{itemize}. O último basta para listas simples, enquanto \textit{enumerate} cria listas enumeradas. Cada item deve ser colocado entre o ambiente após o comando \textbackslash \textit{item Nome do Item}. Estes podem ser detalhadas logo após utilizando o comando \textbackslash \textit{description Descrição}.
+\hspace{2cm}Cria listas em um ambiente. Existem 2 tipos de listas: \textit{enumerate} e \textit{itemize}. O último basta para listas simples, enquanto \textit{enumerate} cria listas enumeradas. Cada item deve ser colocado entre o ambiente após o comando \textbackslash. Estes podem ser detalhadas logo após utilizando o comando \textbackslash \textit{description <descrição>}.
 
 \subsubsection{Formatação}
 
-\hspace{2cm}Para inserir espaços:
-\begin{verbatim}
-\<space><space>...<space>\
-\end{verbatim}
+\textbf{Inserir espaços}: \textbackslash<espaço><espaço>...<espaço>\textbackslash \\
+\textbf{Quebra de linha}: \textbackslash \textbackslash ou \textbackslash newline \\
+\textbf{Inserir recuo à esquerda}: \textbackslash hspace\{espacamento na medida especificada\} \\
+\textbf{Itálico (\textit{it}alic)}: \textbackslash textit\{texto\} \\
+\textbf{Negrito} (\textbf{b}old\textbf{f}ace): \textbackslash textbf\{texto\} \\
 
-\hspace{2cm}Para quebra de linha:
-\begin{verbatim}
-\\
-\end{verbatim}
+\subsubsection{Fonte de letras}
 
-\hspace{2cm}Para parágrafo:
-\begin{verbatim}
-\hspace{espacamento na medida especificada}
-\end{verbatim}
+%\textbf{Muito pequeno}: \textbackslash tiny - \tiny{pequeno}\\
+\textbf{Tamanho de rodapé}: \textbackslash footnotesize - \footnotesize{rodapé}\\
+\textbf{Normal}: \textbackslash normalsize - \normalsize{normal}\\
+\textbf{Grande}: \textbackslash large - \large{grande}\\
+%\textbf{Muito grande}: \textbackslash huge - \huge{muito grande}\\
 
-\hspace{2cm}Para escrever em itálico: (\textit{it}alic)
+
+\subsection{Alinhamento}
+
+\subsubsection{Centralização}
 Sintaxe:
 \begin{verbatim}
-\textit{texto} 
-\end{verbatim}
-Gera:
-\textit {texto}
-
-\hspace{2cm}Deixa o texto \textit{itálico}.
-
-\hspace{2cm}Para escrever em negrito: (\textbf{b}old\textbf{f}ace)
-\begin{verbatim}
-\textbf{texto} 
-\end{verbatim}
-\[\textbf {texto}\]
-
-\begin{verbatim}
-\begin{alinhamento}
-Texto alinhado
-\end{alinhamento}
+\begin{center}
+Texto à ser centralizado
+\end{center}
 \end{verbatim}
 
 \begin{center}
-Texto centralizado
+Centraliza o texto desta forma.
 \end{center}
 
+\subsubsection{Alinhar à esquerda}
+Sintaxe:
+\begin{verbatim}
 \begin{flushleft}
-Texto alinhado à esquerda
+Texto a ser alinhado à esquerda
+\end{flushleft}
+\end{verbatim}
+
+\begin{flushleft}
+Alinha o texto à esquerda (padrão).
 \end{flushleft}
 
+\subsubsection{Alinhar à direita}
+Sintaxe:
+\begin{verbatim}
 \begin{flushright}
-Texto alinhado à direita
+Texto a ser alinhado à direita
+\end{flushright}
+\end{verbatim}
+
+\begin{flushright}
+Alinha o texto à direita, como demonstrado aqui.
 \end{flushright}
 
-\hspace{2cm}Alinhamento à esquerda (flushleft), à direita (flushright) e centralizado (center).
-
 \subsection{Comandos matemáticos}
+\subsubsection{Letras gregas}
 
-\hspace{2cm}Para escrever letras gregas: 
+Sintaxe:
 \begin{verbatim}
 $\alpha \beta \gamma$                   
 $\Sigma \Delta \Omega$
 \end{verbatim}
+
 \[\alpha \beta \gamma\] 
 \[\Sigma \Delta \Omega\]
 
-\hspace{2cm}Para escrever uma fórmula: 
+\hspace{2cm}Imprime letras gregas. Note que existem cifrões (\$) em ambos os lados do comando, pois o \LaTeX\ os trata como uma expressão matemática. Além disso, dependendo do \textit{case} do primeiro caracter da letra, pode-se usar diferentes capitalizações.
+
+\subsubsection{Fórmulas matemáticas}
+Sintaxe:
 \begin{verbatim}
 $formula$
 \end{verbatim}
+
 \[f(x)= x^2\]
 
-\hspace{2cm}Para sobreescrever: 
+\hspace{2cm}Para todas as fórmulas, é necessário que \$ esteja em ambos os lados da expressão em si. Pode ser necesário o uso de outros comandos complementares para escrever a expressão matemática completa.
+
+Para sobreescrever
 \begin{verbatim}
 $texto^{}{texto sobreescrito}$
-\end{verbatim}
-\[x^{2k+1}\]
+\end{verbatim}: \[x^{2k+1}\]
 
-\hspace{2cm}Para subescrever: 
+Para subescrever
 \begin{verbatim}
 $texto_{texto sobreescrito}$ 
-\end{verbatim}
-\[x_1\]
+\end{verbatim}: \[x_1\]
 
-\hspace{2cm}Mutiplicação: 
+Mutiplicação
 \begin{verbatim}
 $fator \times fator = resultado$ 
-\end{verbatim}
-\[3 \times 3 = 9\]
+\end{verbatim}: \[3 \times 3 = 9\]
 
-\hspace{2cm}Divisão: 
+Divisão
 \begin{verbatim}
 \fator \div fator = resultado$ 
 \end{verbatim} 
 \[4 \div 2 = 2\]
 
-\hspace{2cm}Frações: 
+Frações
 \begin{verbatim}
 $\frac{numerador}{denominador}$
 \end{verbatim}
 \[\frac{1}{2}\]
 
-\hspace{2cm}Raízes: 
+Raízes
 \begin{verbatim}
 $\sqrt[índice]{radicando}$
 \end{verbatim}
 \[\sqrt [n] {2}\]
 
-\hspace{2cm}Binomiais: 
+Binomiais
 \begin{verbatim}
 $n \choose {k \over 2}$
 \end{verbatim}
 \[n \choose {k \over 2} \]
 
-\hspace{2cm}Somatórios: 
+Somatórios
 \begin{verbatim}
 $\sum_{i=1}^{N}x^2+3$
 \end{verbatim}
 \[ \sum_{i=1}^{N}x^2+3\]
 
-\hspace{2cm}Produtórios: 
+Produtórios
 \begin{verbatim}
 $\prod_{y=0}^3 y - 1$
 \end{verbatim}
 \[ \prod_{y=0}^3 y - 1 \]
 
-\hspace{2cm}Integrais: 
+Integrais
 \begin{verbatim}
 $\[\int_{-\infty}^{+\infty} \frac{x}{2} + x^2 dx\]$
 \end{verbatim}
 \[\int_{-\infty}^{+\infty} \frac{x}{2} + x^2 dx\]
 
-\hspace{2cm}Limites: 
+Limites
 \begin{verbatim}
 $\[\lim_{x \to \infty}{1 \over x}=0\]$
 \end{verbatim}
