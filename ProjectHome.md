@@ -1,0 +1,1 @@
+Manual sobre como escrever utilizando LaTeX
